@@ -1,0 +1,17 @@
+<div class="container-global">
+
+
+  <%= simple_form_for @translation, url: translations_path do |f| %>
+    <%= f.text_area :content %>
+    <br>
+    <%= f.button :submit, "Apply Bionic Reading to my text" %>
+  <% end %>
+
+<br>
+<br>
+
+  <% @translations.each do |translation|  %>
+    <h1><%= translation.split(" ").first(5).join(" ") %> ... </h1>
+    <p> <%= translation %></p>
+  <% end %>
+</div>

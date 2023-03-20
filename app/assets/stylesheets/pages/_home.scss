@@ -1,1 +1,42 @@
 // Specific CSS for your home-page
+body,
+h1, h2, h3, h4, h5, h6,
+p{
+  margin: 0;
+}
+
+
+.container-global{
+  margin-block: 5vh;
+  // margin-inline: 10vh;
+  padding: 2%;
+  color: rgb(70, 70, 70);
+}
+
+#translation_content{
+  height: 60vh;
+  width: 100%;
+  padding: 5vh;
+}
+
+@media(min-width: 576px) {
+  #translation_content{
+  font-size: 1em;
+  }
+
+  .container-global{
+    padding-inline: 16%;
+  }
+}
+
+@media(min-width: 992px) {
+
+  #translation_content{
+  font-size: 1em;
+  }
+
+  .container-global{
+    padding-inline: 24%;
+  }
+
+  }
