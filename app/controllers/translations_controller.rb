@@ -7,36 +7,31 @@ class TranslationsController < ApplicationController
   end
 
   def create
-    # raise
     input_content = params[:translation][:content]
 
     output_content = input_content.split(" ")
-    oooo = []
-    output_content.each do |element|
-      if element.chars.count <= 3
-        oooo << element.gsub(element[0], "<strong>#{element.first}</strong>")
-        # element = element.gsub(element[0], "<strong>#{element.first}</strong>")
-      else
-        oooo << element.gsub(element.first(element.chars.count.to_f.fdiv(2).round), "<strong>#{element.first(element.chars.count.to_f.fdiv(2).round)}</strong>")
-        # element = element.gsub(element.first(element.chars.count.to_f.fdiv(2).round), "<strong>#{element.first(element.chars.count.to_f.fdiv(2).round)}</strong>")
-        # element.chars[0] = "<strong>#{element.chars[0]}"
-        # element.chars[element.chars.count.to_f.fdiv(2).round - 1] = "#{element.chars[element.chars.count.to_f.fdiv(2).round - 1]}</strong>"
+    output_content.map! do |element|
+      # if element.chars.count <= 3
+        # element.gsub(element[0], "<strong>#{element[0]}</strong>")
+        # else
+        element.gsub(element.first(element.chars.count.to_f.fdiv(2).round), "<strong>#{element.first(element.chars.count.to_f.fdiv(2).round)}</strong>")
+        # end
       end
-      return oooo
-      @translation = oooo.join(" ")
-      raise
-    end
-    # raise
 
+    @translation = Translation.new
+    @translation.content = output_content.join(" ")
+    if @translation.save
+      redirect_to root_path
+    else
+      render :home, alert: "it didn't work"
+    end
+
+    
     # >> "hello".gsub('hello'.first(3),'<strong>nana')
 
 
     # En fait ça n'a pas l'air de fonctionner sur le double array de lettre, en .map ou .each
     # Je vais essayer de spliter au bon endroit et que ce soit en sub-words
-
-
-    # coquille vide et forcer le .content
-    # @translation = Translation.new(translation_params)
 
 
     # Penser à enregistrer avec redirection vers une nouvelle page
