@@ -7,11 +7,18 @@
     <%= f.button :submit, "Apply Bionic Reading to my text" %>
   <% end %>
 
-<br>
-<br>
+  <br>
+  <p> <%= @translation.content %></p>
 
-  <% @translations.each do |translation|  %>
-    <h1><%= translation.split(" ").first(5).join(" ") %> ... </h1>
-    <p> <%= translation %></p>
+
+  <br>
+
+
+  <% @translations.last(5).each do |translation|  %>
+    <%#= translation.content.split(" ").first(5).join(" ") %>
+    <br>
+    <p><%= translation.id %> - <%= translation.content %></p>
   <% end %>
 </div>
+
+<p><strong>oui</strong></p>
