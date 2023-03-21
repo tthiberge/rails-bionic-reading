@@ -26,9 +26,9 @@ class TranslationsController < ApplicationController
       render :home, alert: "it didn't work"
     end
 
-    
-    # >> "hello".gsub('hello'.first(3),'<strong>nana')
 
+    # >> "hello".gsub('hello'.first(3),'<strong>nana')
+    # Try to add if else
 
     # En fait ça n'a pas l'air de fonctionner sur le double array de lettre, en .map ou .each
     # Je vais essayer de spliter au bon endroit et que ce soit en sub-words
