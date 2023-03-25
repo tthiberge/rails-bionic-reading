@@ -1,10 +1,18 @@
 <div class="container-global">
 
 
-  <%= simple_form_for @translation, url: translations_path do |f| %>
-    <%= f.text_area :content %>
-    <br>
-    <%= f.button :submit, "Apply Bionic Reading to my text" %>
+  <%= simple_form_for @translation, url: translations_path,
+          html: {
+            data: {controller: "form" }
+          } do |f| %>
+    <%= f.text_area :content,
+                    input_html: {
+                      data: {form_target: "content"}
+                    }%>
+    <%= f.button :submit, "Apply Bionic Reading to my text",
+                  input_html: {
+                      data: {action: "submit->form#display"}
+                    }%>
   <% end %>
 
   <br>
