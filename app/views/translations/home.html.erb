@@ -3,6 +3,9 @@
 
   <%= simple_form_for @translation, url: translations_path, html: {data: {action: "submit->form#display"}} do |f| %>
     <%= f.input :content,
+                label: "Text input",
+                required: false,
+                placeholder: "Enter here the text that you want to transform into bionic reading",
                   as: :text,
                   input_html: {data: {form_target: "input"}}%>
     <%= f.submit "Apply Bionic Reading to my text"
