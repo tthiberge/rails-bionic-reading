@@ -1,19 +1,17 @@
 <div class="container-global" data-controller="form" data-form-target="window">
 
 
-  <%= simple_form_for @translation, url: translations_path do |f| %>
+  <%= simple_form_for @translation, url: translations_path, html: {data: {action: "submit->form#display"}} do |f| %>
     <%= f.input :content,
                   as: :text,
-                    input_html: {
-                      data: {
-                        form_target: "input",
-                        action: "keyup->form#type"}
+                  input_html: {
+                    data: {
+                      form_target: "input",
+                      action: "keyup->form#type"}
                     }%>
-    <%= f.button :submit, "Apply Bionic Reading to my text",
-                  data: {
-                    action: "click->form#display"
-                  }
-                    %>
+    <%= f.button :submit, "Apply Bionic Reading to my text"
+                  # ,data: {action: "click->form#display"}
+    %>
   <% end %>
 
   <br>
@@ -29,7 +27,7 @@
     <p><%= translation.id %> - <%= translation.content %></p>
   <% end %>
 
-  
+
 <ul data-form-target="list">
 <li>Oui</li>
 <li>Ouiiii</li>

@@ -13,7 +13,7 @@ export default class extends Controller {
   display(event) {
     event.preventDefault()
     // console.log("clicked")
-    // console.log("submitted") // Marche pas mon data-action sur submit, seulement sur click
+    // console.log("submitted") // Marche pas mon data-action sur submit, seulement sur click. Submit se met sur le formulaire, pas le bouton!! ça marche!
     console.log(this.inputTarget.value)
 
     // console.log(this.windowTarget)
