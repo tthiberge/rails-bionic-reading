@@ -4,36 +4,31 @@
   <%= simple_form_for @translation, url: translations_path, html: {data: {action: "submit->form#display"}} do |f| %>
     <%= f.input :content,
                   as: :text,
-                  input_html: {
-                    data: {
-                      form_target: "input",
-                      action: "keyup->form#type"}
-                    }%>
-    <%= f.button :submit, "Apply Bionic Reading to my text"
+                  input_html: {data: {form_target: "input"}}%>
+    <%= f.submit "Apply Bionic Reading to my text"
                   # ,data: {action: "click->form#display"}
     %>
   <% end %>
 
-  <br>
-  <p> <%= @translation.content %></p>
+  <div>
+    <p data-form-target="result">
+    </p>
+  </div>
 
+  <button data-action="click->form#reloadPage">New translation</button>
 
-  <br>
-
-
-  <% @translations&.last(5).each do |translation|  %>
-    <%#= translation.content.split(" ").first(5).join(" ") %>
-    <br>
-    <p><%= translation.id %> - <%= translation.content %></p>
-  <% end %>
-
-
-<ul data-form-target="list">
-<li>Oui</li>
-<li>Ouiiii</li>
-<li>OUIII</li>
-</ul>
+  <%# <ul data-form-target="list">
+  <li>Oui</li>
+  <li>Ouiiii</li>
+  <li>OUIII</li>
+  </ul> %>
 </div>
 
 
-<p><strong>oui</strong></p>
+<%# <p><strong>oui</strong></p> %>
+
+  <%#= @translation.content %>
+  <%# @translations&.last(5).each do |translation|  %>
+    <%#= translation.content.split(" ").first(5).join(" ") %>
+    <%#= translation.id - <%= translation.content %>
+  <%# end %>
