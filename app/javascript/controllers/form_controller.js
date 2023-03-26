@@ -25,6 +25,8 @@ export default class extends Controller {
     // Sur chaque mot, couper au bon endroit et faire une partie avant en strong, une partie après en pas strong
     console.log(input.split(" "))
 
+    const newInput = input.
+
     const newArray = []
 
     input.split(" ").forEach((word) => {
@@ -66,6 +68,9 @@ export default class extends Controller {
 
     // .length .join('.') .substring(0, milieu de chaine) .replace renvoie la version modifiée mais n'écrase pas la version initiale comme un .map
 
+    // Réinitialiser pour pas que ça s'accumule
+    this.resultTarget.innerHTML=""
+
 
     // Afficher la string
     // const boldResult = `<strong>${this.inputTarget.value}</strong>`
@@ -82,6 +87,10 @@ export default class extends Controller {
     // console.log(this.inputTarget.value)
   }
 }
+
+// Améliorations:
+// 1. Quand on va à la ligne, que le résultat aille à la ligne
+// Il y a dans le texte un \n à espacer et conserver
 
 // Scroll en bas de page à faire fonctionner ensuite
     // console.log(this.windowTarget)
