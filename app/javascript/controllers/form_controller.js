@@ -19,8 +19,10 @@ export default class extends Controller {
     // console.log(this.windowTarget)
     // this.windowTarget.scrollTo(0, this.windowTarget.scrollHeight)
 
-    // console.log(this.listTarget)
-    this.listTarget.insertAdjacentHTML("beforeend", <strong>{this.inputTarget.value}</strong>)
+    console.log(this.listTarget)
+    const contentValue  = `<li><strong>${this.inputTarget.value}</strong></li>`
+    console.log(contentValue)
+    this.listTarget.insertAdjacentHTML("beforeend", contentValue)
 
     // Les acolades ont l'ir d'être problématique
   }
