@@ -25,8 +25,6 @@ export default class extends Controller {
     // Sur chaque mot, couper au bon endroit et faire une partie avant en strong, une partie après en pas strong
     console.log(input.split(" "))
 
-    const newInput = input.
-
     const newArray = []
 
     input.split(" ").forEach((word) => {
