@@ -40,47 +40,36 @@ export default class extends Controller {
         newArray.push(newWord) //console.log(newArray) // OK
 
       } else {
-        // Je vérifie que je rentre dans ma condition de plus de 3 lettres
+        // Je vérifie que je rentre dans ma condition de plus de 3 lettres. OK
         // console.log(">3")
 
-        // 
+        // Je vérifie l'arrondi en JS
+        // console.log(Math.round(word.length/2))
 
+        // Je vérifie que ça me prend bien le bon nombre de premières lettres
+        // console.log(word.substring(0, Math.round(word.length/2)))
 
-
+        // Je fais les substitutions dans le mot
+        const cut = word.substring(0, Math.round(word.length/2)) // La partie du mot que je veux graisser
+        // console.log(word.replace(cut, `<strong>${cut}</strong>`))
+        const newWord = word.replace(cut, `<strong>${cut}</strong>`)
+        newArray.push(newWord)
       }
     })
 
-    console.log(newArray)
-
-    // # if element.chars.count <= 3
-    //     # element.gsub(element[0], "<strong>#{element[0]}</strong>")
-    //     # else
-    //     element.gsub(element.first(element.chars.count.to_f.fdiv(2).round), "<strong>#{element.first(element.chars.count.to_f.fdiv(2).round)}</strong>")
-    //     # end
-
-    // .replace( /www\./g, '' )   g pour global pour un vrai gsub
-
-    // .length .join('.') .substring(0, milieu de chaine)
-
-    // Re-concatener le mot
-    // Je voudrais des envies
+    // Je vérifie qu'à la sortie de mon if, ça retourne bien l'array modifié
+    // console.log(newArray)
 
     // Re-concatener la string
+    const newString = newArray.join(" ")
+    console.log(newString)
+
+    // .length .join('.') .substring(0, milieu de chaine) .replace renvoie la version modifiée mais n'écrase pas la version initiale comme un .map
 
 
     // Afficher la string
-
     // const boldResult = `<strong>${this.inputTarget.value}</strong>`
-
-
-    // this.resultTarget.insertAdjacentHTML("afterbegin", boldResult)
-
-
-
-
-    // this.resultTarget.insertAdjacentHTML("afterbegin", `<strong>${this.inputTarget.value}</strong>`)
-    // this.listTarget.insertAdjacentHTML("afterbegin", `<li><strong>${this.inputTarget.value}</strong></li>`)
-
+    this.resultTarget.insertAdjacentHTML("afterbegin", newString)
 
 
   }
