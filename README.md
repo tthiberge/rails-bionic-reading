@@ -1,6 +1,6 @@
-### Bionic-Reading inspiration
+# Bionic-Reading inspiration
 
-In March 2023, I came across this website that inspired me a lot :https://app.bionic-reading.com/
+In March 2023, I came across this website that inspired me a lot: https://app.bionic-reading.com/
 
 In order to improve my tech skills, I decided to try to reproduce their app behavior, on a much lower level.
 
