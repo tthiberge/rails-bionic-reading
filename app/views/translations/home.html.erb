@@ -1,5 +1,14 @@
 <div class="container-global" data-controller="form" data-form-target="window">
 
+  <div>
+    <p data-form-target="result">
+
+
+    
+    </p>
+  </div>
+  <br><br>
+
 
   <%= simple_form_for @translation, url: translations_path, html: {data: {action: "submit->form#display"}} do |f| %>
     <%= f.input :content,
@@ -14,11 +23,8 @@
     %>
   <% end %>
 
-  <div>
-    <p data-form-target="result">
-    </p>
-  </div>
-  <br><br><br><br>
+
+<br><br>
   <p><em>To try again with another text, edit directly your text in the text area or click below:
   <button data-action="click->form#reloadPage" class="btn btn-primary rounded-pill">New translation</button>
 
