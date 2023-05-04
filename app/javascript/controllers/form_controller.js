@@ -3,10 +3,12 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="form"
 export default class extends Controller {
 
-  static targets = ["input", "list", "window", "result"]
+  static targets = ["input", "list", "window", "result", "change", "formulaire"]
 
   connect() {
     console.log("Connected")
+    console.log(this.changeTarget.innerText) // N'apparait pas dans la console si je mets la target en d-none par défaut
+    console.log(this.formulaireTarget)
   }
 
   display(event) {
@@ -61,7 +63,11 @@ export default class extends Controller {
     // console.log(newArray)
 
     // Re-concatener la string
-    const newString = newArray.join(" ")
+    const newString = ` <h3> Bionic translation: </h3>
+    <p> ${newArray.join(" ")} </p>
+    `
+
+
     console.log(newString)
 
     // .length .join('.') .substring(0, milieu de chaine) .replace renvoie la version modifiée mais n'écrase pas la version initiale comme un .map
@@ -73,6 +79,8 @@ export default class extends Controller {
     // Afficher la string
     // const boldResult = `<strong>${this.inputTarget.value}</strong>`
     this.resultTarget.insertAdjacentHTML("afterbegin", newString)
+    this.formulaireTarget.classList.add("d-none")
+    this.changeTarget.classList.remove("d-none")
 
 
   }
@@ -83,6 +91,10 @@ export default class extends Controller {
 
   type() {
     // console.log(this.inputTarget.value)
+  }
+
+  changeText() {
+    this.formulaireTarget.classList.remove("d-none")
   }
 }
 

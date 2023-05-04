@@ -1,22 +1,26 @@
-<div class="container-global" data-controller="form" data-form-target="window">
+<div class="container-global bg-white" data-controller="form" data-form-target="window">
 
-  <div>
-    <p data-form-target="result">
+  <div data-form-target="result">
 
-
-    
-    </p>
   </div>
+  <br>
+  <p class="btn btn-warning rounded-pill d-none" data-form-target="change" data-action="click->form#changeText">
+    Change my non-bionic text
+  </p>
   <br><br>
 
 
-  <%= simple_form_for @translation, url: translations_path, html: {data: {action: "submit->form#display"}} do |f| %>
+  <%= simple_form_for @translation, url: translations_path, html: {data: {
+    form_target: "formulaire",
+    action: "submit->form#display"}} do |f| %>
     <%= f.input :content,
+                as: :text,
                 label: "Text input:",
                 required: false,
                 placeholder: "Enter here the text that you want to transform into bionic reading",
-                  as: :text,
-                  input_html: {data: {form_target: "input"}}%>
+                input_html: {
+                  class: "bg-light",
+                  data: {form_target: "input"}}%>
     <%= f.submit "Apply Bionic Reading to my text",
                   class: "btn btn-success rounded-pill"
                   # ,data: {action: "click->form#display"}
@@ -39,7 +43,7 @@
 <%# <p><strong>oui</strong></p> %>
 
   <%#= @translation.content %>
-  <%# @translations&.last(5).each do |translation|  %>
+  <% @translations&.last(2).each do |translation|  %>
     <%#= translation.content.split(" ").first(5).join(" ") %>
-    <%#= translation.id - <%= translation.content %>
-  <%# end %>
+    <%= translation.id %> - <%= translation.content.html_safe %>
+  <% end %>
