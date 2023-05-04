@@ -81,6 +81,7 @@ export default class extends Controller {
     this.resultTarget.insertAdjacentHTML("afterbegin", newString)
     this.formulaireTarget.classList.add("d-none")
     this.changeTarget.classList.remove("d-none")
+    this.resultTarget.classList.remove("d-none")
 
 
   }
