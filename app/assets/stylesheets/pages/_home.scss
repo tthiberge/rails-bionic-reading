@@ -3,6 +3,7 @@ body,
 h1, h2, h3, h4, h5, h6,
 p{
   margin: 0;
+  color: grey;
 }
 
 
@@ -17,7 +18,11 @@ p{
   height: 20vh;
   width: 100%;
   padding: 5vh;
-  background-color: red;
+  background-color: white;
+
+  P {
+    color: black;
+  }
 }
 
 @media(min-width: 576px) {

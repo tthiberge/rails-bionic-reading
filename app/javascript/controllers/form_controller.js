@@ -63,8 +63,8 @@ export default class extends Controller {
     // console.log(newArray)
 
     // Re-concatener la string
-    const newString = ` <h3> Bionic translation: </h3>
-    <p> ${newArray.join(" ")} </p>
+    const newString = // `<h3> Bionic translation: </h3>
+    ` <p> ${newArray.join(" ")} </p>
     `
 
 
@@ -80,7 +80,9 @@ export default class extends Controller {
     // const boldResult = `<strong>${this.inputTarget.value}</strong>`
     this.resultTarget.insertAdjacentHTML("afterbegin", newString)
     this.formulaireTarget.classList.add("d-none")
-    this.changeTarget.classList.remove("d-none")
+    this.changeTargets.forEach((target) => {
+      target.classList.remove("d-none")
+    })
     this.resultTarget.classList.remove("d-none")
 
 

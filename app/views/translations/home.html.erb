@@ -1,13 +1,20 @@
-<div class="container-global bg-white" data-controller="form" data-form-target="window">
+<div class="container-global bg-black" data-controller="form" data-form-target="window">
 
   <div id="translation_content" class="d-none" data-form-target="result">
 
   </div>
 
   <br>
-  <p class="btn btn-warning rounded-pill d-none" data-form-target="change" data-action="click->form#changeText">
-    Change my non-bionic text
-  </p>
+  <div class="d-flex justify-content-around">
+    <p class="btn btn-light rounded-pill d-none" data-form-target="change" data-action="click->form#changeText">
+      <i class="fa-solid fa-pencil"></i> Change the original text
+    </p>
+
+    <button data-action="click->form#reloadPage" class="btn btn-light rounded-pill d-none" data-form-target="change">
+      <i class="fa-solid fa-plus"></i> New translation
+    </button>
+  </div>
+
   <br><br>
 
 
@@ -17,19 +24,24 @@
     <%= f.input :content,
                 as: :text,
                 label: "Text input:",
+                label_html: {
+                  style: "color: white"
+                },
                 required: false,
                 placeholder: "Enter here the text that you want to transform into bionic reading",
                 input_html: {
-                  class: "bg-light",
+                  class: "bg-white",
+                  # style: "border-radius: 10px",
                   data: {form_target: "input"}}%>
     <%= f.submit "Apply Bionic Reading to my text",
-                  class: "btn btn-success rounded-pill"
+                  class: "btn btn-light"
                   # ,data: {action: "click->form#display"}
     %>
   <% end %>
 
 
-<br><br>
+  <br><br>
+
   <p><em>To try again with another text, edit directly your text in the text area or click below:
   <button data-action="click->form#reloadPage" class="btn btn-primary rounded-pill">New translation</button>
 
