@@ -6,16 +6,16 @@
 
   <br>
   <div class="d-flex justify-content-around">
-    <p class="btn btn-light rounded-pill d-none" data-form-target="change" data-action="click->form#changeText">
+    <p class="btn btn-outline-light rounded-pill d-none" data-form-target="change" data-action="click->form#changeText">
       <i class="fa-solid fa-pencil"></i> Change the original text
     </p>
 
-    <button data-action="click->form#reloadPage" class="btn btn-light rounded-pill d-none" data-form-target="change">
+    <button data-action="click->form#reloadPage" class="btn btn-outline-light rounded-pill d-none" data-form-target="change">
       <i class="fa-solid fa-plus"></i> New translation
     </button>
   </div>
 
-  <br><br>
+    <br><br>
 
 
   <%= simple_form_for @translation, url: translations_path, html: {data: {

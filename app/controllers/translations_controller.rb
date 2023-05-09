@@ -3,13 +3,12 @@ class TranslationsController < ApplicationController
     @translation = Translation.new
     @translations = Translation.all
 
-
   end
 
   def create
     input_content = params[:translation][:content]
-
     output_content = input_content.split(" ")
+    # raise
     output_content.map! do |element|
       # if element.chars.count <= 3
         # element.gsub(element[0], "<strong>#{element[0]}</strong>")

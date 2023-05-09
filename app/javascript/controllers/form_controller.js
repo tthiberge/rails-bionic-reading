@@ -64,7 +64,7 @@ export default class extends Controller {
 
     // Re-concatener la string
     const newString = // `<h3> Bionic translation: </h3>
-    ` <p> ${newArray.join(" ")} </p>
+    ` <p> ${newArray.join(" ")} \n hello </p>
     `
 
 
@@ -72,7 +72,7 @@ export default class extends Controller {
 
     // .length .join('.') .substring(0, milieu de chaine) .replace renvoie la version modifiée mais n'écrase pas la version initiale comme un .map
 
-    // Réinitialiser pour pas que ça s'accumule
+    // Réinitialiser le champ où j'affiche la version en gras pour pas que les différentes traductions s'accumulent 
     this.resultTarget.innerHTML=""
 
 
@@ -97,6 +97,7 @@ export default class extends Controller {
   }
 
   changeText() {
+    // this.formulaireTarget.insertAdjacentHTML(afterbegin, `<br> <br><br> <br><br> <br>`)
     this.formulaireTarget.classList.remove("d-none")
   }
 }
